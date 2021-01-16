@@ -1,0 +1,2198 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Dirk Adler">
+      
+      
+      <link rel="shortcut icon" href="../../../../img/php-rdkafka.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>ApiKey - PHP Kafka Client</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-apikey" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="PHP Kafka Client" class="md-header-nav__button md-logo" aria-label="PHP Kafka Client">
+      
+  <img src="../../../../img/php-rdkafka.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            PHP Kafka Client
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              ApiKey
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/idealo/php-rdkafka-ffi/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    idealo/php-rdkafka-ffi
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Getting started
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        Api
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../benchmarks/" class="md-tabs__link">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../try-out/" class="md-tabs__link">
+      Try out
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../changelog/" class="md-tabs__link">
+      Changelog
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../contributing/" class="md-tabs__link">
+      Contributing
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../license/" class="md-tabs__link">
+      License
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="PHP Kafka Client" class="md-nav__button md-logo" aria-label="PHP Kafka Client">
+      
+  <img src="../../../../img/php-rdkafka.svg" alt="logo">
+
+    </a>
+    PHP Kafka Client
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/idealo/php-rdkafka-ffi/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    idealo/php-rdkafka-ffi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Api
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Api" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Api
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../" class="md-nav__link">
+      RdKafka
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../constants/" class="md-nav__link">
+      Constants
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../functions/" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" checked>
+    
+    <label class="md-nav__link" for="nav-2-5">
+      RdKafka
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="RdKafka" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        <span class="md-nav__icon md-icon"></span>
+        RdKafka
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Conf/" class="md-nav__link">
+      Conf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Consumer/" class="md-nav__link">
+      Consumer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../ConsumerTopic/" class="md-nav__link">
+      ConsumerTopic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Event/" class="md-nav__link">
+      Event
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Exception/" class="md-nav__link">
+      Exception
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../KafkaConsumer/" class="md-nav__link">
+      KafkaConsumer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../KafkaConsumerTopic/" class="md-nav__link">
+      KafkaConsumerTopic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../KafkaErrorException/" class="md-nav__link">
+      KafkaErrorException
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Message/" class="md-nav__link">
+      Message
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Metadata/" class="md-nav__link">
+      Metadata
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Producer/" class="md-nav__link">
+      Producer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../ProducerTopic/" class="md-nav__link">
+      ProducerTopic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Queue/" class="md-nav__link">
+      Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Topic/" class="md-nav__link">
+      Topic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../TopicConf/" class="md-nav__link">
+      TopicConf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../TopicPartition/" class="md-nav__link">
+      TopicPartition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../TopicPartitionList/" class="md-nav__link">
+      TopicPartitionList
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-18" type="checkbox" id="nav-2-5-18" >
+    
+    <label class="md-nav__link" for="nav-2-5-18">
+      Admin
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Admin" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-5-18">
+        <span class="md-nav__icon md-icon"></span>
+        Admin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/AlterConfigsOptions/" class="md-nav__link">
+      AlterConfigsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/Client/" class="md-nav__link">
+      Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/ConfigEntry/" class="md-nav__link">
+      ConfigEntry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/ConfigResource/" class="md-nav__link">
+      ConfigResource
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/ConfigResourceResult/" class="md-nav__link">
+      ConfigResourceResult
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/CreatePartitionsOptions/" class="md-nav__link">
+      CreatePartitionsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/CreateTopicsOptions/" class="md-nav__link">
+      CreateTopicsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/DeleteTopic/" class="md-nav__link">
+      DeleteTopic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/DeleteTopicsOptions/" class="md-nav__link">
+      DeleteTopicsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/DescribeConfigsOptions/" class="md-nav__link">
+      DescribeConfigsOptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/NewPartitions/" class="md-nav__link">
+      NewPartitions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/NewTopic/" class="md-nav__link">
+      NewTopic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/Options/" class="md-nav__link">
+      Options
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Admin/TopicResult/" class="md-nav__link">
+      TopicResult
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-19" type="checkbox" id="nav-2-5-19" >
+    
+    <label class="md-nav__link" for="nav-2-5-19">
+      FFI
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="FFI" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-5-19">
+        <span class="md-nav__icon md-icon"></span>
+        FFI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/CallbackProxy/" class="md-nav__link">
+      CallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/ConsumeCallbackProxy/" class="md-nav__link">
+      ConsumeCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/DrMsgCallbackProxy/" class="md-nav__link">
+      DrMsgCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/ErrorCallbackProxy/" class="md-nav__link">
+      ErrorCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/Library/" class="md-nav__link">
+      Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/LogCallbackProxy/" class="md-nav__link">
+      LogCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/Methods/" class="md-nav__link">
+      Methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/NativePartitionerCallbackProxy/" class="md-nav__link">
+      NativePartitionerCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/OffsetCommitCallbackProxy/" class="md-nav__link">
+      OffsetCommitCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/OpaqueMap/" class="md-nav__link">
+      OpaqueMap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/PartitionerCallbackProxy/" class="md-nav__link">
+      PartitionerCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/RebalanceCallbackProxy/" class="md-nav__link">
+      RebalanceCallbackProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../FFI/StatsCallbackProxy/" class="md-nav__link">
+      StatsCallbackProxy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-20" type="checkbox" id="nav-2-5-20" >
+    
+    <label class="md-nav__link" for="nav-2-5-20">
+      Metadata
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Metadata" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-5-20">
+        <span class="md-nav__icon md-icon"></span>
+        Metadata
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Metadata/Broker/" class="md-nav__link">
+      Broker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Metadata/Collection/" class="md-nav__link">
+      Collection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Metadata/Partition/" class="md-nav__link">
+      Partition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../Metadata/Topic/" class="md-nav__link">
+      Topic
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5-21" type="checkbox" id="nav-2-5-21" checked>
+    
+    <label class="md-nav__link" for="nav-2-5-21">
+      Test
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Test" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-5-21">
+        <span class="md-nav__icon md-icon"></span>
+        Test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ApiKey
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      ApiKey
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addoffsetstotxn" class="md-nav__link">
+    AddOffsetsToTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addpartitionstotxn" class="md-nav__link">
+    AddPartitionsToTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alterconfigs" class="md-nav__link">
+    AlterConfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alterreplicalogdirs" class="md-nav__link">
+    AlterReplicaLogDirs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiversion" class="md-nav__link">
+    ApiVersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlledshutdown" class="md-nav__link">
+    ControlledShutdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createacls" class="md-nav__link">
+    CreateAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createdelegationtoken" class="md-nav__link">
+    CreateDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createpartitions" class="md-nav__link">
+    CreatePartitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createtopics" class="md-nav__link">
+    CreateTopics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteacls" class="md-nav__link">
+    DeleteAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletegroups" class="md-nav__link">
+    DeleteGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecords" class="md-nav__link">
+    DeleteRecords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletetopics" class="md-nav__link">
+    DeleteTopics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describeacls" class="md-nav__link">
+    DescribeAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describeconfigs" class="md-nav__link">
+    DescribeConfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describedelegationtoken" class="md-nav__link">
+    DescribeDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describegroups" class="md-nav__link">
+    DescribeGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describelogdirs" class="md-nav__link">
+    DescribeLogDirs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endtxn" class="md-nav__link">
+    EndTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expiredelegationtoken" class="md-nav__link">
+    ExpireDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    Fetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findcoordinator" class="md-nav__link">
+    FindCoordinator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heartbeat" class="md-nav__link">
+    Heartbeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initproducerid" class="md-nav__link">
+    InitProducerId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joingroup" class="md-nav__link">
+    JoinGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderandisr" class="md-nav__link">
+    LeaderAndIsr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leavegroup" class="md-nav__link">
+    LeaveGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listgroups" class="md-nav__link">
+    ListGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none" class="md-nav__link">
+    None
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset" class="md-nav__link">
+    Offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetcommit" class="md-nav__link">
+    OffsetCommit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetfetch" class="md-nav__link">
+    OffsetFetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetforleaderepoch" class="md-nav__link">
+    OffsetForLeaderEpoch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#produce" class="md-nav__link">
+    Produce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renewdelegationtoken" class="md-nav__link">
+    RenewDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saslauthenticate" class="md-nav__link">
+    SaslAuthenticate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saslhandshake" class="md-nav__link">
+    SaslHandshake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopreplica" class="md-nav__link">
+    StopReplica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syncgroup" class="md-nav__link">
+    SyncGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#txnoffsetcommit" class="md-nav__link">
+    TxnOffsetCommit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatemetadata" class="md-nav__link">
+    UpdateMetadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writetxnmarkers" class="md-nav__link">
+    WriteTxnMarkers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../MockCluster/" class="md-nav__link">
+      MockCluster
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../benchmarks/" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../try-out/" class="md-nav__link">
+      Try out
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../changelog/" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../contributing/" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../license/" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addoffsetstotxn" class="md-nav__link">
+    AddOffsetsToTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addpartitionstotxn" class="md-nav__link">
+    AddPartitionsToTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alterconfigs" class="md-nav__link">
+    AlterConfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alterreplicalogdirs" class="md-nav__link">
+    AlterReplicaLogDirs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiversion" class="md-nav__link">
+    ApiVersion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlledshutdown" class="md-nav__link">
+    ControlledShutdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createacls" class="md-nav__link">
+    CreateAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createdelegationtoken" class="md-nav__link">
+    CreateDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createpartitions" class="md-nav__link">
+    CreatePartitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createtopics" class="md-nav__link">
+    CreateTopics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteacls" class="md-nav__link">
+    DeleteAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletegroups" class="md-nav__link">
+    DeleteGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecords" class="md-nav__link">
+    DeleteRecords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletetopics" class="md-nav__link">
+    DeleteTopics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describeacls" class="md-nav__link">
+    DescribeAcls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describeconfigs" class="md-nav__link">
+    DescribeConfigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describedelegationtoken" class="md-nav__link">
+    DescribeDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describegroups" class="md-nav__link">
+    DescribeGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describelogdirs" class="md-nav__link">
+    DescribeLogDirs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endtxn" class="md-nav__link">
+    EndTxn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expiredelegationtoken" class="md-nav__link">
+    ExpireDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    Fetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findcoordinator" class="md-nav__link">
+    FindCoordinator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heartbeat" class="md-nav__link">
+    Heartbeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initproducerid" class="md-nav__link">
+    InitProducerId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joingroup" class="md-nav__link">
+    JoinGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderandisr" class="md-nav__link">
+    LeaderAndIsr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leavegroup" class="md-nav__link">
+    LeaveGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listgroups" class="md-nav__link">
+    ListGroups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none" class="md-nav__link">
+    None
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset" class="md-nav__link">
+    Offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetcommit" class="md-nav__link">
+    OffsetCommit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetfetch" class="md-nav__link">
+    OffsetFetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offsetforleaderepoch" class="md-nav__link">
+    OffsetForLeaderEpoch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#produce" class="md-nav__link">
+    Produce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renewdelegationtoken" class="md-nav__link">
+    RenewDelegationToken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saslauthenticate" class="md-nav__link">
+    SaslAuthenticate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saslhandshake" class="md-nav__link">
+    SaslHandshake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopreplica" class="md-nav__link">
+    StopReplica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syncgroup" class="md-nav__link">
+    SyncGroup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#txnoffsetcommit" class="md-nav__link">
+    TxnOffsetCommit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatemetadata" class="md-nav__link">
+    UpdateMetadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writetxnmarkers" class="md-nav__link">
+    WriteTxnMarkers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/idealo/php-rdkafka-ffi/edit/master/docs/api/RdKafka/Test/ApiKey.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="class-apikey">Class ApiKey<a class="headerlink" href="#class-apikey" title="Permanent link">&para;</a></h1>
+<p>Class \RdKafka\Test\ApiKey</p>
+<div class="admonition tip">
+<p class="admonition-title">See also</p>
+<ul>
+<li><a href="https://kafka.apache.org/protocol#protocol_api_keys"> https://kafka.apache.org/protocol#protocol_api_keys </a></li>
+</ul>
+</div>
+<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">&para;</a></h2>
+<h3 id="addoffsetstotxn">AddOffsetsToTxn<a class="headerlink" href="#addoffsetstotxn" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">AddOffsetsToTxn</span> <span class="o">=</span> <span class="mi">25</span>
+</code></pre></div>
+<h3 id="addpartitionstotxn">AddPartitionsToTxn<a class="headerlink" href="#addpartitionstotxn" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">AddPartitionsToTxn</span> <span class="o">=</span> <span class="mi">24</span>
+</code></pre></div>
+<h3 id="alterconfigs">AlterConfigs<a class="headerlink" href="#alterconfigs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">AlterConfigs</span> <span class="o">=</span> <span class="mi">33</span>
+</code></pre></div>
+<h3 id="alterreplicalogdirs">AlterReplicaLogDirs<a class="headerlink" href="#alterreplicalogdirs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">AlterReplicaLogDirs</span> <span class="o">=</span> <span class="mi">34</span>
+</code></pre></div>
+<h3 id="apiversion">ApiVersion<a class="headerlink" href="#apiversion" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">ApiVersion</span> <span class="o">=</span> <span class="mi">18</span>
+</code></pre></div>
+<h3 id="controlledshutdown">ControlledShutdown<a class="headerlink" href="#controlledshutdown" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">ControlledShutdown</span> <span class="o">=</span> <span class="mi">7</span>
+</code></pre></div>
+<h3 id="createacls">CreateAcls<a class="headerlink" href="#createacls" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">CreateAcls</span> <span class="o">=</span> <span class="mi">30</span>
+</code></pre></div>
+<h3 id="createdelegationtoken">CreateDelegationToken<a class="headerlink" href="#createdelegationtoken" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">CreateDelegationToken</span> <span class="o">=</span> <span class="mi">38</span>
+</code></pre></div>
+<h3 id="createpartitions">CreatePartitions<a class="headerlink" href="#createpartitions" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">CreatePartitions</span> <span class="o">=</span> <span class="mi">37</span>
+</code></pre></div>
+<h3 id="createtopics">CreateTopics<a class="headerlink" href="#createtopics" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">CreateTopics</span> <span class="o">=</span> <span class="mi">19</span>
+</code></pre></div>
+<h3 id="deleteacls">DeleteAcls<a class="headerlink" href="#deleteacls" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DeleteAcls</span> <span class="o">=</span> <span class="mi">31</span>
+</code></pre></div>
+<h3 id="deletegroups">DeleteGroups<a class="headerlink" href="#deletegroups" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DeleteGroups</span> <span class="o">=</span> <span class="mi">42</span>
+</code></pre></div>
+<h3 id="deleterecords">DeleteRecords<a class="headerlink" href="#deleterecords" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DeleteRecords</span> <span class="o">=</span> <span class="mi">21</span>
+</code></pre></div>
+<h3 id="deletetopics">DeleteTopics<a class="headerlink" href="#deletetopics" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DeleteTopics</span> <span class="o">=</span> <span class="mi">20</span>
+</code></pre></div>
+<h3 id="describeacls">DescribeAcls<a class="headerlink" href="#describeacls" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DescribeAcls</span> <span class="o">=</span> <span class="mi">29</span>
+</code></pre></div>
+<h3 id="describeconfigs">DescribeConfigs<a class="headerlink" href="#describeconfigs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DescribeConfigs</span> <span class="o">=</span> <span class="mi">32</span>
+</code></pre></div>
+<h3 id="describedelegationtoken">DescribeDelegationToken<a class="headerlink" href="#describedelegationtoken" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DescribeDelegationToken</span> <span class="o">=</span> <span class="mi">41</span>
+</code></pre></div>
+<h3 id="describegroups">DescribeGroups<a class="headerlink" href="#describegroups" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DescribeGroups</span> <span class="o">=</span> <span class="mi">15</span>
+</code></pre></div>
+<h3 id="describelogdirs">DescribeLogDirs<a class="headerlink" href="#describelogdirs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">DescribeLogDirs</span> <span class="o">=</span> <span class="mi">35</span>
+</code></pre></div>
+<h3 id="endtxn">EndTxn<a class="headerlink" href="#endtxn" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">EndTxn</span> <span class="o">=</span> <span class="mi">26</span>
+</code></pre></div>
+<h3 id="expiredelegationtoken">ExpireDelegationToken<a class="headerlink" href="#expiredelegationtoken" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">ExpireDelegationToken</span> <span class="o">=</span> <span class="mi">40</span>
+</code></pre></div>
+<h3 id="fetch">Fetch<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">Fetch</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<h3 id="findcoordinator">FindCoordinator<a class="headerlink" href="#findcoordinator" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">FindCoordinator</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div>
+<h3 id="heartbeat">Heartbeat<a class="headerlink" href="#heartbeat" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">Heartbeat</span> <span class="o">=</span> <span class="mi">12</span>
+</code></pre></div>
+<h3 id="initproducerid">InitProducerId<a class="headerlink" href="#initproducerid" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">InitProducerId</span> <span class="o">=</span> <span class="mi">22</span>
+</code></pre></div>
+<h3 id="joingroup">JoinGroup<a class="headerlink" href="#joingroup" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">JoinGroup</span> <span class="o">=</span> <span class="mi">11</span>
+</code></pre></div>
+<h3 id="leaderandisr">LeaderAndIsr<a class="headerlink" href="#leaderandisr" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">LeaderAndIsr</span> <span class="o">=</span> <span class="mi">4</span>
+</code></pre></div>
+<h3 id="leavegroup">LeaveGroup<a class="headerlink" href="#leavegroup" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">LeaveGroup</span> <span class="o">=</span> <span class="mi">13</span>
+</code></pre></div>
+<h3 id="listgroups">ListGroups<a class="headerlink" href="#listgroups" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">ListGroups</span> <span class="o">=</span> <span class="mi">16</span>
+</code></pre></div>
+<h3 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">Metadata</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre></div>
+<h3 id="none">None<a class="headerlink" href="#none" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">None</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+<h3 id="offset">Offset<a class="headerlink" href="#offset" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">Offset</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre></div>
+<h3 id="offsetcommit">OffsetCommit<a class="headerlink" href="#offsetcommit" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">OffsetCommit</span> <span class="o">=</span> <span class="mi">8</span>
+</code></pre></div>
+<h3 id="offsetfetch">OffsetFetch<a class="headerlink" href="#offsetfetch" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">OffsetFetch</span> <span class="o">=</span> <span class="mi">9</span>
+</code></pre></div>
+<h3 id="offsetforleaderepoch">OffsetForLeaderEpoch<a class="headerlink" href="#offsetforleaderepoch" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">OffsetForLeaderEpoch</span> <span class="o">=</span> <span class="mi">23</span>
+</code></pre></div>
+<h3 id="produce">Produce<a class="headerlink" href="#produce" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">Produce</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<h3 id="renewdelegationtoken">RenewDelegationToken<a class="headerlink" href="#renewdelegationtoken" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">RenewDelegationToken</span> <span class="o">=</span> <span class="mi">39</span>
+</code></pre></div>
+<h3 id="saslauthenticate">SaslAuthenticate<a class="headerlink" href="#saslauthenticate" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">SaslAuthenticate</span> <span class="o">=</span> <span class="mi">36</span>
+</code></pre></div>
+<h3 id="saslhandshake">SaslHandshake<a class="headerlink" href="#saslhandshake" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">SaslHandshake</span> <span class="o">=</span> <span class="mi">17</span>
+</code></pre></div>
+<h3 id="stopreplica">StopReplica<a class="headerlink" href="#stopreplica" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">StopReplica</span> <span class="o">=</span> <span class="mi">5</span>
+</code></pre></div>
+<h3 id="syncgroup">SyncGroup<a class="headerlink" href="#syncgroup" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">SyncGroup</span> <span class="o">=</span> <span class="mi">14</span>
+</code></pre></div>
+<h3 id="txnoffsetcommit">TxnOffsetCommit<a class="headerlink" href="#txnoffsetcommit" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">TxnOffsetCommit</span> <span class="o">=</span> <span class="mi">28</span>
+</code></pre></div>
+<h3 id="updatemetadata">UpdateMetadata<a class="headerlink" href="#updatemetadata" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">UpdateMetadata</span> <span class="o">=</span> <span class="mi">6</span>
+</code></pre></div>
+<h3 id="writetxnmarkers">WriteTxnMarkers<a class="headerlink" href="#writetxnmarkers" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="nx">WriteTxnMarkers</span> <span class="o">=</span> <span class="mi">27</span>
+</code></pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Metadata/Topic/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Topic
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../MockCluster/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                MockCluster
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; idealo internet GmbH.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
